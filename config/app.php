@@ -143,6 +143,8 @@ return [
         // 'store'  => 'redis',
     ],
 
+    'school_domain' => env('SCHOOL_DOMAIN'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -185,6 +187,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Spatie\Permission\PermissionServiceProvider::class,
 
         /*
          * Application Service Providers...
