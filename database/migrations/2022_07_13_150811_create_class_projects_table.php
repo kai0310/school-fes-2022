@@ -13,25 +13,25 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('class_projects', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('school_class_id')
-                ->nullable()
                 ->constrained()
                 ->onDelete('cascade');
 
-            $table->string('google_id')->nullable();
-
             $table->string('name');
+            $table->text('detail');
+            $table->string('vision');
+            $table->string('place');
 
-            $table->string('profile_photo_path')->nullable();
+            $table->integer('type');
 
-            $table->string('email')->unique();
+            $table->boolean('consumption_provision')
+                ->default(false);
 
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable();
-            $table->rememberToken();
+            $table->boolean('paid_planning')
+                ->default(false);
 
             $table->timestamps();
         });
@@ -44,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('class_projects');
     }
 };

@@ -10,7 +10,7 @@ class EnsureRolesArePresent
 {
     public function __invoke()
     {
-        if ($this->present() && Schema::hasTable('permissions')) {
+        if ($this->present() && Schema::hasTable('roles')) {
             return;
         }
 
@@ -28,6 +28,6 @@ class EnsureRolesArePresent
 
     public function present(): bool
     {
-        return DB::table('permissions')->count() > 0;
+        return DB::table('roles')->count() > 0;
     }
 }

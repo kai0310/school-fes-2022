@@ -16,10 +16,6 @@ return new class extends Migration
         Schema::create('school_classes', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id')
-                ->constrained()
-                ->onDelete('cascade');
-
             $table->integer('organization')
                 ->comment('所属団体');
 
@@ -28,9 +24,6 @@ return new class extends Migration
 
             $table->string('class')
                 ->comment('クラス');
-
-            $table->integer('class_number')
-                ->comment('出席番号');
 
             $table->timestamps();
         });
