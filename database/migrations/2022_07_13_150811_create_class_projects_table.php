@@ -22,16 +22,17 @@ return new class extends Migration
 
             $table->string('name');
             $table->text('detail');
-            $table->string('vision');
-            $table->string('place');
+            $table->string('place')->nullable();
 
-            $table->integer('type');
+            $table->string('type');
 
-            $table->boolean('consumption_provision')
+            $table->boolean('provide_meals')
                 ->default(false);
 
             $table->boolean('paid_planning')
                 ->default(false);
+
+            $table->text('infection_control');
 
             $table->timestamps();
         });

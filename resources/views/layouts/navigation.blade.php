@@ -15,6 +15,13 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @if(auth()->user()->hasRole('student'))
+                        <x-nav-link :href="route('class-project.my-class')" :active="request()->routeIs('class-project.my-class')">
+                            {{ __('自分のクラス企画') }}
+                        </x-nav-link>
+                    @endif
+
                 </div>
             </div>
 

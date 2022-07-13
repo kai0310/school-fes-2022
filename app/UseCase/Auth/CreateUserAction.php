@@ -55,8 +55,6 @@ class CreateUserAction
             'class' => $jr_high_school_student
                 ? substr($prefixCode, 1, 2)
                 : $alphabet[((int) substr($prefixCode, 1, 2)) - 1],
-
-            'class_number' => substr($prefixCode, 3, 2),
         ]);
 
         return $class;
