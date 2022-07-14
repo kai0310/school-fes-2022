@@ -143,8 +143,6 @@ return [
         // 'store'  => 'redis',
     ],
 
-    'school_domain' => env('SCHOOL_DOMAIN'),
-
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

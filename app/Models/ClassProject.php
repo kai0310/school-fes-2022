@@ -25,7 +25,7 @@ class ClassProject extends Model
     protected $casts = [
         'provide_meals' => 'boolean',
         'paid_planning' => 'boolean',
-        'type' => ClassProjectType::class
+        'type' => ClassProjectType::class,
     ];
 
     public function schoolClass(): BelongsTo

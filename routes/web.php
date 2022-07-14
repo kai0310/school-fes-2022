@@ -3,7 +3,6 @@
 use App\Http\Controllers\ClassProjectController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::view('/', 'welcome');
 
 Route::middleware(['auth', 'role:student'])->group(function () {
