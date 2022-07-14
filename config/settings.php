@@ -12,6 +12,10 @@ return [
 
     'repository' => 'kai0310/school-fes-2022',
 
-    'school_domain' => env('SCHOOL_DOMAIN'),
+    'school' => [
+        'access' => env('SCHOOL_ACCESS'),
+        'domain' => env('SCHOOL_DOMAIN'),
+        'homepage' => env('SCHOOL_HOMEPAGE'),
+    ],
 
 ];

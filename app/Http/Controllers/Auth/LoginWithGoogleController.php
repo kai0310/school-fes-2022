@@ -14,7 +14,7 @@ class LoginWithGoogleController extends Controller
     public function redirectToGoogle(): RedirectResponse
     {
         return Socialite::driver('google')
-            ->with(['hd' => config('settings.school_domain')])
+            ->with(['hd' => config('settings.school.domain')])
             ->redirect();
     }
 
@@ -26,7 +26,7 @@ class LoginWithGoogleController extends Controller
             return to_route('login');
         }
 
-        if (explode('@', $googleAccount->email)[1] !== config('settings.school_domain')) {
+        if (explode('@', $googleAccount->email)[1] !== config('settings.school.domain')) {
             return redirect()->to('/');
         }
 
