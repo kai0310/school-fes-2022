@@ -12,7 +12,7 @@ class ClassProject extends Model
     use HasFactory;
 
     protected $fillable = [
-        'school_class_id',
+        'school_class_code',
         'name',
         'detail',
         'place',
@@ -25,12 +25,14 @@ class ClassProject extends Model
     protected $casts = [
         'provide_meals' => 'boolean',
         'paid_planning' => 'boolean',
-        'type' => ClassProjectType::class,
     ];
 
     public function schoolClass(): BelongsTo
     {
-        return $this->belongsTo(SchoolClass::class);
+        return $this->belongsTo(SchoolClass::class,
+            'school_class_code',
+            'code'
+        );
     }
 
     public function isAttraction(): bool

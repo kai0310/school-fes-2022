@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('class_projects', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('school_class_id')
-                ->constrained()
-                ->onDelete('cascade');
+            $table->integer('school_class_code');
 
             $table->string('name');
             $table->text('detail');

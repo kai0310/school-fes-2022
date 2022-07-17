@@ -18,4 +18,9 @@ return [
         'homepage' => env('SCHOOL_HOMEPAGE'),
     ],
 
+    'sheets' => [
+        'class_project' => env('SHEETS.CLASS_PROJECT'),
+
+    ],
+
 ];

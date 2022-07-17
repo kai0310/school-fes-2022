@@ -23,5 +23,4 @@ class Utils
             return file_exists($path);
         });
     }
-
 }

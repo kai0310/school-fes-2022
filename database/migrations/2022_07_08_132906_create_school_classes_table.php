@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('school_classes', function (Blueprint $table) {
             $table->id();
 
+            $table->integer('code');
+
             $table->integer('organization')
                 ->comment('所属団体');
 

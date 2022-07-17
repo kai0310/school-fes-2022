@@ -46,6 +46,8 @@ class CreateUserAction
         $jr_high_school_student = substr($prefixCode, 0, 1) < 4;
 
         $class = SchoolClass::firstOrCreate([
+            'code' => $prefixCode,
+
             'organization' => $jr_high_school_student ? 0 : 1,
 
             'grade' => $jr_high_school_student

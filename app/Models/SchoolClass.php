@@ -12,6 +12,7 @@ class SchoolClass extends Model
     use HasFactory;
 
     protected $fillable = [
+        'code',
         'organization',
         'grade',
         'class',
@@ -25,6 +26,9 @@ class SchoolClass extends Model
 
     public function classProject(): HasOne
     {
-        return $this->hasOne(ClassProject::class);
+        return $this->hasOne(ClassProject::class,
+            'school_class_code',
+            'code'
+        );
     }
 }
