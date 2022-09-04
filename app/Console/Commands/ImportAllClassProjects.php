@@ -44,6 +44,7 @@ class ImportAllClassProjects extends Command
             );
 
         $insert_data = [];
+        $leaders = [];
 
         // Customize it to fit your own format
         $projectType = ['体験型', '模擬店 (収益あり)', '模擬店 (収益なし)'];
@@ -60,8 +61,21 @@ class ImportAllClassProjects extends Command
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
+            $leaders[] = [
+                'school_class_code' => (int) mb_substr($record[7], 0, 5),
+                'user_email' => $record[6],
+            ];
         }
 
         ClassProject::insert($insert_data);
+
+        foreach ($leaders as $leader) {
+            $project = ClassProject::query()->where('school_class_code', $leader['school_class_code'])->first();
+
+
+            $project->leaders()->attach($leader['user_email']);
+        }
+
+        $this->info('import successfully ✨');
     }
 }

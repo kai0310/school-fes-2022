@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -58,5 +59,15 @@ class User extends Authenticatable
     public function schoolClass(): BelongsTo
     {
         return $this->belongsTo(SchoolClass::class);
+    }
+
+    public function classProjects()
+    {
+        return $this->morphedByMany(
+            ClassProject::class,
+            'userable',
+            foreignPivotKey: 'user_email',
+            parentKey: 'email'
+        );
     }
 }

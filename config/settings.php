@@ -19,7 +19,7 @@ return [
     ],
 
     'sheets' => [
-        'class_project' => env('SHEETS.CLASS_PROJECT'),
+        'class_project' => env('SHEETS_CLASS_PROJECT'),
 
     ],
 

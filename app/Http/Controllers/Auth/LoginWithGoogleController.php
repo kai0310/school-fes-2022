@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Leader;
 use App\Models\User;
 use App\UseCase\Auth\CreateUserAction;
 use Exception;
@@ -39,12 +40,18 @@ class LoginWithGoogleController extends Controller
 
         if ($existingUser) {
             auth()->login($existingUser, true);
-        } else {
+            return to_route('dashboard');
+        }
+
+        $leaders = Leader::pluck('user_email')->toArray();
+
+        if(in_array($googleAccount->email, $leaders)) {
             $user = $createUserAction($googleAccount, $prefixCode);
 
             auth()->login($user, true);
+            return to_route('dashboard');
         }
 
-        return to_route('dashboard');
+        return to_route('login');
     }
 }

@@ -39,4 +39,14 @@ class ClassProject extends Model
     {
         return $this->type === ClassProjectType::Attraction;
     }
+
+    public function leaders()
+    {
+        return $this->morphToMany(
+            User::class,
+            'userable',
+            relatedPivotKey: 'user_email',
+            relatedKey: 'email',
+        );
+    }
 }

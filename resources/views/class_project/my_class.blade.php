@@ -9,7 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-
                     @if($schoolClass->classProject)
 
                         <div class="bg-white">
@@ -77,21 +76,18 @@
                                                 </div>
                                             @endif
 
-                                            @if($schoolClass->classProject->isAttraction())
                                                 <div class="bg-red-400 text-white flex inline-block items-center py-2 rounded-full flex-none font-bold px-4 gap-x-1">
                                                     <x-twemoji emoij="🎮"/>
                                                     <span class="text-sm">
                                                         体験型
                                                     </span>
                                                 </div>
-                                            @else
                                                 <div class="bg-indigo-400 text-white flex inline-block items-center py-2 rounded-full flex-none font-bold px-4 gap-x-1">
                                                     <x-twemoji emoij="🍿"/>
                                                     <span class="text-sm">
                                                     劇・発表
                                                 </span>
                                                 </div>
-                                            @endif
 
                                             @if($schoolClass->classProject->provide_meals)
                                                 <div class="bg-green-400 text-white flex inline-block items-center py-2 rounded-full flex-none font-bold px-4 gap-x-1">
@@ -107,13 +103,13 @@
                                             <h3 class="text-sm font-medium text-gray-900 flex items-center">
                                                 <x-twemoji emoij="😷" class="mr-5"/>
                                                 <x-twemoji emoij="✨" class="mr-5"/>
-                                                <span class="ml-1">
+                                                <span class="ml-1 text-base font-semibold">
                                                     {{ __('私たちは、以下の感染対策を行なっています') }}
                                                 </span>
                                             </h3>
 
                                             <div class="mt-4">
-                                                <p class="text-sm text-gray-600">
+                                                <p class="text-gray-600">
                                                     {{ $schoolClass->classProject->infection_control }}
                                                 </p>
                                             </div>
