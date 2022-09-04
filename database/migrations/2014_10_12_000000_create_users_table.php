@@ -18,7 +18,6 @@ return new class extends Migration
 
             $table->foreignId('school_class_id')
                 ->nullable()
-                ->constrained()
                 ->onDelete('cascade');
 
             $table->string('google_id')->nullable();
