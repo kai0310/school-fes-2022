@@ -51,10 +51,10 @@ class ImportAllClassProjects extends Command
 
         foreach ($records as $record) {
             $insert_data[] = [
-                'school_class_code' => (int) mb_substr($record[7], 0, 5),
+                'school_class_code' => (int) mb_substr($record[7], 0, 3),
                 'name' => $record[10],
                 'detail' => $record[11],
-                'type' => array_search($record[27], $projectType),
+                'type' => $record[27]=== '体験型' ? 0 : 1,
                 'provide_meals' => $record[28] === '行う',
                 'paid_planning' => $record[27] === $projectType[1],
                 'infection_control' => $record[18],

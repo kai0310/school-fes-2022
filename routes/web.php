@@ -24,3 +24,7 @@ Route::middleware(['auth', 'role:student'])->group(function () {
             Route::get('my-class', [ClassProjectController::class, 'myClass'])->name('my-class');
         });
 });
+
+Route::get('/output/class_projects', function () {
+    return App\Models\ClassProject::all()->toJson(JSON_UNESCAPED_UNICODE);
+});
